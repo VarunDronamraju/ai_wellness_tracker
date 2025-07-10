@@ -4,11 +4,11 @@ import random
 router = APIRouter()
 
 TIPS = [
-    "Adjust your posture regularly.",
-    "Take a break every 30 minutes.",
-    "Blink to avoid eye strain.",
-    "Stretch your shoulders.",
-    "Breathe deeply for 60 seconds."
+    "Take regular screen breaks every 30 minutes.",
+    "Keep your back straight and shoulders relaxed.",
+    "Stay hydrated throughout the day.",
+    "Try a 5-minute stretch every hour.",
+    "Blink often to reduce eye strain."
 ]
 
 @router.get("/")

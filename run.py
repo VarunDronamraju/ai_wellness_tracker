@@ -2,16 +2,10 @@ import subprocess
 import sys
 import time
 import threading
-import os
-
-# Set root directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(BASE_DIR)
 
 def start_backend():
     subprocess.Popen(
         [sys.executable, "-m", "uvicorn", "backend.main:app", "--reload"],
-        cwd=BASE_DIR,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL
     )
@@ -27,5 +21,5 @@ def start_frontend():
 if __name__ == "__main__":
     backend_thread = threading.Thread(target=start_backend, daemon=True)
     backend_thread.start()
-    time.sleep(2)
+    time.sleep(2)  # Allow backend to boot
     start_frontend()

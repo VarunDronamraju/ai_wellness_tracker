@@ -1,19 +1,18 @@
 import requests
 
-def safe_get(url):
+def fetch_tip():
     try:
-        res = requests.get(url, timeout=3)
-        return res.json()
+        res = requests.get("http://127.0.0.1:8000/tip", timeout=3)
+        return res.json().get("tip", "No tip available.")
     except:
-        return {}
+        return "Error fetching tip."
 
-def get_screen_time():
-    res = safe_get("http://127.0.0.1:8000/log")
-    return res.get("screen_time", "0h 0m")
-
-def get_tip_of_the_day():
-    res = safe_get("http://127.0.0.1:8000/tip")
-    return res.get("tip", "Stay hydrated!")
+def get_premium_status():
+    try:
+        res = requests.get("http://127.0.0.1:8000/subscription/status", timeout=3)
+        return res.json().get("premium", False)
+    except:
+        return False
 
 def toggle_premium():
     try:
@@ -21,7 +20,3 @@ def toggle_premium():
         return res.json().get("premium", False)
     except:
         return False
-
-def get_premium_status():
-    res = safe_get("http://127.0.0.1:8000/subscription/status")
-    return res.get("premium", False)
