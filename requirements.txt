@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pyqt5
+opencv-python
+cryptography
+pydantic
+langchain
+openai
+sqlalchemy
+httpx
+python-multipart
+pytest
